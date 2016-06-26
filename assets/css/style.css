@@ -1,0 +1,24 @@
+.text-center{
+	text-align:center;
+}
+
+p{
+	margin-bottom:0px;
+}
+
+.fields{
+	background:white;
+	width:100%;
+	padding:10px 0px;
+	text-align:center;
+	border:0px;
+}
+
+.fields-select{
+	height:35px;
+	background:white;
+	width:100%;
+	padding:10px 0px;
+	text-align:center;
+	border:0px;
+}

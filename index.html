@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>AvistaAprazo</title>
+		<link rel="stylesheet" href="assets/css/framework7.ios.min.css">
+		<link rel="stylesheet" href="assets/css/framework7.ios.colors.min.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	<body>
+		<div class="statusbar-overlay"></div>
+		<div class="panel-overlay"></div>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="center sliding">AvistaAprazo</div>
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div data-page="index" class="page">
+						<div class="page-content">
+							<div class="content-block">
+								<div class="row text-center">
+									<div class="col-50">
+										<p>Valor da parcela</p>
+									</div>
+									<div class="col-50">
+										<p>No Parcelas</p>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-50">
+										<input class="fields" type="text" id="parcela" placeholder="R$ 0,00">
+									</div>
+									<div class="col-50">
+										<input class="fields" type="text" id="nparcelas" placeholder="1x">
+									</div>
+								</div>
+
+
+								<div class="row text-center">
+									<div class="col-50">
+										<p>À vista com desconto</p>
+									</div>
+									<div class="col-50">
+										<p>Desconto em %</p>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-50">
+										<input class="fields" type="text" id="avistadesconto" placeholder="R$ 0,00">
+									</div>
+									<div class="col-50">
+										<input class="fields" type="text" id="descontopercentual" placeholder="0%">
+									</div>
+								</div>
+							</div>
+
+							<div class="content-block-title">Rendimento da aplicação</div>
+							<div class="content-block">
+								<div class="row text-center">
+									<div class="col-50">
+										<p>Tipo da aplicação</p>
+									</div>
+									<div class="col-50">
+										<p>Rendimento anual</p>
+									</div>
+								</div>
+								<div class="row text-center">
+									<div class="col-50">
+										<select class="fields-select" id="aplicacao" >
+											<option value="12">Selic</value>
+											<option value="12">CDB</value>
+										</select>
+									</div>
+									<div class="col-50">
+										<input class="fields" type="text" id="rendimento" placeholder="12%">
+									</div>
+								</div>
+							</div>
+
+
+							<div class="content-block">
+								<div class="row">
+									<div class="col-100"><a href="#" id="resultado" class="home-btn-calculate button button-large">Preencha os campos</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/js/framework7.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="model/App.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="controller/Home.js"></script>
+	</body>
+</html>
