@@ -9,6 +9,8 @@ App.prototype.HomeScreen = function() {
 	$("#avistadesconto").on('keyup', function(){$("#descontopercentual").val("")});
 	$("#descontopercentual").on('keyup', function(){$("#avistadesconto").val("")});
 
+	$("#aplicacao").on('change',$("#rendimento").val($("#aplicacao").val()));
+
 };
 
 App.prototype.HomeCalculateAction = function(e) {

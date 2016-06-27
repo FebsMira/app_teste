@@ -34,10 +34,10 @@
 								</div>
 								<div class="row text-center">
 									<div class="col-50">
-										<input class="fields" type="text" id="parcela" placeholder="R$ 0,00">
+										<input class="fields" type="number" id="parcela" placeholder="R$ 0,00">
 									</div>
 									<div class="col-50">
-										<input class="fields" type="text" id="nparcelas" placeholder="1x">
+										<input class="fields" type="number" id="nparcelas" placeholder="1x">
 									</div>
 								</div>
 
@@ -52,10 +52,10 @@
 								</div>
 								<div class="row text-center">
 									<div class="col-50">
-										<input class="fields" type="text" id="avistadesconto" placeholder="R$ 0,00">
+										<input class="fields" type="number" id="avistadesconto" placeholder="R$ 0,00">
 									</div>
 									<div class="col-50">
-										<input class="fields" type="text" id="descontopercentual" placeholder="0%">
+										<input class="fields" type="number" id="descontopercentual" placeholder="0%">
 									</div>
 								</div>
 							</div>
@@ -72,13 +72,15 @@
 								</div>
 								<div class="row text-center">
 									<div class="col-50">
+										<!-- http://www.valor.com.br/valor-data/indices-financeiros/indicadores-de-mercado -->
 										<select class="fields-select" id="aplicacao" >
-											<option value="12">Selic</value>
-											<option value="12">CDB</value>
+											<option value="6">Poupança</value>
+											<option value="9.45">Renda fixa</value>
+											<option value="14.25">Selic</value>
 										</select>
 									</div>
 									<div class="col-50">
-										<input class="fields" type="text" id="rendimento" placeholder="12%">
+										<input class="fields" type="number" id="rendimento" placeholder="1%">
 									</div>
 								</div>
 							</div>
