@@ -1,6 +1,6 @@
 App.prototype.HomeScreen = function() {
 	var self = this;
-	$("#parcela").on('keyup', self.HomeCalculateAction.bind(self));
+	$("#valorcompra").on('keyup', self.HomeCalculateAction.bind(self));
 	$("#nparcelas").on('keyup', self.HomeCalculateAction.bind(self));
 	$("#avistadesconto").on('keyup', self.HomeCalculateAction.bind(self));
 	$("#descontopercentual").on('keyup', self.HomeCalculateAction.bind(self));
@@ -9,32 +9,41 @@ App.prototype.HomeScreen = function() {
 	$("#avistadesconto").on('keyup', function(){$("#descontopercentual").val("")});
 	$("#descontopercentual").on('keyup', function(){$("#avistadesconto").val("")});
 
-	$("#aplicacao").on('change',$("#rendimento").val($("#aplicacao").val()));
-
+	$("#aplicacao").on('change',function(){$("#rendimento").val($("#aplicacao").val())});
+	$("#rendimento").val($("#aplicacao").val());
 };
 
 App.prototype.HomeCalculateAction = function(e) {
 	e.preventDefault();
 	//console.log(e.currentTarget.value);
-	var parcela=$("#parcela").val() || 0;
+	var valorcompra=$("#valorcompra").val() || 0;
 	var nparcelas=$("#nparcelas").val() || 0;
+	var parcela = (valorcompra/nparcelas).toFixed(2);
 	var avistadesconto=$("#avistadesconto").val() || 0;
 	var desconto=$("#descontopercentual").val() || 0;
 	var rendimento=$("#rendimento").val() || 0;
-	var total=0;
-	for(var i=0; i<nparcelas;i++){
-		//total = total*(1+(juros/100))+parcela;
-		total = parcela*nparcelas;
+	var totalrendimento=0;
+	if(desconto>0){
+		var totalcomdesconto=valorcompra*(1-(desconto/100));
+	}else{
+		var totalcomdesconto=valorcompra;
 	}
-	total = total.toFixed(2);
-	if(parcela>0 && nparcelas>0 && avistadesconto>0 || desconto>0){
-		if(avistadesconto < total){
-			$("#resultado").html("Compre a vista");
+	var rendimentomensal = rendimento/(100*12);
+	for(var i=0; i<nparcelas;i++){
+		if(i>0){
+			totalrendimento = parseFloat(totalrendimento*(1+rendimentomensal));
+		}
+		totalrendimento += parseFloat(parcela);
+	}
+	totalrendimento = totalrendimento.toFixed(2);
+	if(valorcompra>0 && nparcelas>0 && (avistadesconto>0 || desconto>0)){
+		if(totalrendimento > valorcompra && valorcompra <= totalcomdesconto){
+			$("#resultado").html("Compre à prazo");
 		}else{
-			$("#resultado").html("Compre parcelado");
+			$("#resultado").html("Compre à vista");
 		}
 	}else{
 		$("#resultado").html("Preencha os campos");
 	}
-	console.log(total);
+	console.log(totalrendimento);
 };
