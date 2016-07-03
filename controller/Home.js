@@ -1,49 +1,50 @@
 App.prototype.HomeScreen = function() {
 	var self = this;
-	$("#valorcompra").on('keyup', self.HomeCalculateAction.bind(self));
-	$("#nparcelas").on('keyup', self.HomeCalculateAction.bind(self));
-	$("#avistadesconto").on('keyup', self.HomeCalculateAction.bind(self));
-	$("#descontopercentual").on('keyup', self.HomeCalculateAction.bind(self));
-	$("#rendimento").on('keyup', self.HomeCalculateAction.bind(self));
-
-	$("#avistadesconto").on('keyup', function(){$("#descontopercentual").val("")});
-	$("#descontopercentual").on('keyup', function(){$("#avistadesconto").val("")});
-
-	$("#aplicacao").on('change',function(){$("#rendimento").val($("#aplicacao").val())});
-	$("#rendimento").val($("#aplicacao").val());
+	$("#soma").on('click', self.setOperadorSoma.bind(self));
+	$("#subtracao").on('click', self.setOperadorSubtracao.bind(self));
+	$("#multiplicacao").on('click', self.setOperadorMultiplicacao.bind(self));
+	$("#divisao").on('click', self.setOperadorDivisao.bind(self));
 };
 
+App.prototype.setOperadorSoma = function(e){
+    var self = this;
+    var valor1 = $("#display1").val() || 0;
+    var valor2 = $("#display2").val() || 0;
+    self.resultado = parseFloat(valor1.replace(",", ".")) + parseFloat(valor2.replace(",", "."));
+    self.HomeCalculateAction(e);
+}
+
+App.prototype.setOperadorSubtracao = function(e){
+    var self = this;
+    var valor1 = $("#display1").val() || 0;
+    var valor2 = $("#display2").val() || 0;
+    self.resultado = parseFloat(valor1.replace(",", ".")) - parseFloat(valor2.replace(",", "."));
+    self.HomeCalculateAction(e);
+}
+
+App.prototype.setOperadorMultiplicacao = function(e){
+    var self = this;
+    var valor1 = $("#display1").val() || 0;
+    var valor2 = $("#display2").val() || 0;
+    self.resultado = parseFloat(valor1.replace(",", ".")) * parseFloat(valor2.replace(",", "."));
+    self.HomeCalculateAction(e);
+}
+
+App.prototype.setOperadorDivisao = function(e){
+    var self = this;
+    var valor1 = $("#display1").val() || 0;
+    var valor2 = $("#display2").val() || 0;
+    if(valor2 == 0){
+        alert("O segundo valor não pode ser zero!");
+    }else{
+
+        self.resultado = parseFloat(valor1.replace(",", ".")) / parseFloat(valor2.replace(",", "."));
+        self.HomeCalculateAction(e);
+    }
+
+}
+
 App.prototype.HomeCalculateAction = function(e) {
-	e.preventDefault();
-	//console.log(e.currentTarget.value);
-	var valorcompra=$("#valorcompra").val() || 0;
-	var nparcelas=$("#nparcelas").val() || 0;
-	var parcela = (valorcompra/nparcelas).toFixed(2);
-	var avistadesconto=$("#avistadesconto").val() || 0;
-	var desconto=$("#descontopercentual").val() || 0;
-	var rendimento=$("#rendimento").val() || 0;
-	var totalrendimento=0;
-	if(desconto>0){
-		var totalcomdesconto=valorcompra*(1-(desconto/100));
-	}else{
-		var totalcomdesconto=valorcompra;
-	}
-	var rendimentomensal = rendimento/(100*12);
-	for(var i=0; i<nparcelas;i++){
-		if(i>0){
-			totalrendimento = parseFloat(totalrendimento*(1+rendimentomensal));
-		}
-		totalrendimento += parseFloat(parcela);
-	}
-	totalrendimento = totalrendimento.toFixed(2);
-	if(valorcompra>0 && nparcelas>0 && (avistadesconto>0 || desconto>0)){
-		if(totalrendimento > valorcompra && valorcompra <= totalcomdesconto){
-			$("#resultado").html("Compre à prazo");
-		}else{
-			$("#resultado").html("Compre à vista");
-		}
-	}else{
-		$("#resultado").html("Preencha os campos");
-	}
-	console.log(totalrendimento);
+    var self = this;
+    $("#display3").val(self.resultado.toFixed(2));
 };

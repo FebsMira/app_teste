@@ -4,13 +4,13 @@
 	id        = "br.com.felippegallo.AvistaAprazo"
 	versionCode="110" 
 	version   = "1.1.0">
-	<name>AvistaAprazo</name>
+	<name>app_teste</name>
 	<description>
-		AvistaAprazo
+		app_teste
 	</description>
 
 	<author href="https://felippegallo.com.br" email="contato@felippegallo.com.br">
-		AvistaAprazo
+		app_teste
 	</author>
 
 <icon src="icons/android.png" />

@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<title>À vista à prazo</title>
+		<title>App Teste</title>
 		<link rel="stylesheet" href="assets/css/framework7.ios.min.css">
 		<link rel="stylesheet" href="assets/css/framework7.ios.colors.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
@@ -17,7 +17,7 @@
 			<div class="view view-main">
 				<div class="navbar">
 					<div class="navbar-inner">
-						<div class="center sliding">À vista à prazo</div>
+						<div class="center sliding">App Teste</div>
 					</div>
 				</div>
 				<div class="pages navbar-through toolbar-through">
@@ -25,70 +25,48 @@
 						<div class="page-content">
 							<div class="content-block">
 								<div class="row text-center">
-									<div class="col-50">
-										<p>Valor da compra</p>
-									</div>
-									<div class="col-50">
-										<p>Nº de Parcelas</p>
-									</div>
 								</div>
 								<div class="row text-center">
-									<div class="col-50">
-										<input class="fields" type="number" id="valorcompra" placeholder="R$ 0,00">
+									<div class="col-30">
+										<input class="fields" type="number" id="display1" placeholder="0,00">
 									</div>
-									<div class="col-50">
-										<input class="fields" type="number" id="nparcelas" placeholder="1x">
+									<div class="col-30">
+										<input class="fields" type="number" id="display2" placeholder="0,00">
+									</div>
+									<div class="col-10">
+										<label>=</label>
+									</div>
+									<div class="col-30">
+										<input class="fields" type="number" id="display3" placeholder="0,00">
 									</div>
 								</div>
 
-
-								<div class="row text-center">
-									<div class="col-50">
-										<p>À vista com desconto</p>
-									</div>
-									<div class="col-50">
-										<p>Desconto em %</p>
-									</div>
-								</div>
-								<div class="row text-center">
-									<div class="col-50">
-										<input class="fields" type="number" id="avistadesconto" placeholder="R$ 0,00">
-									</div>
-									<div class="col-50">
-										<input class="fields" type="number" id="descontopercentual" placeholder="0%">
-									</div>
-								</div>
-							</div>
-
-							<div class="content-block-title">Rendimento da aplicação</div>
-							<div class="content-block">
-								<div class="row text-center">
-									<div class="col-50">
-										<p>Tipo da aplicação</p>
-									</div>
-									<div class="col-50">
-										<p>Rendimento anual</p>
-									</div>
-								</div>
-								<div class="row text-center">
-									<div class="col-50">
-										<!-- http://www.valor.com.br/valor-data/indices-financeiros/indicadores-de-mercado -->
-										<select class="fields-select" id="aplicacao" >
-											<option value="6">Poupança</value>
-											<option value="9.45">Renda fixa</value>
-											<option value="14.25">Selic</value>
-										</select>
-									</div>
-									<div class="col-50">
-										<input class="fields" type="number" id="rendimento" placeholder="1%">
-									</div>
-								</div>
-							</div>
-
-
-							<div class="content-block">
 								<div class="row">
-									<div class="col-100"><a href="#" id="resultado" class="home-btn-calculate button button-large">Preencha os campos</a></div>
+									<br/>
+								</div>
+
+
+								<div class="row text-center">
+									<div class="col-25">
+										<div class="col-100">
+											<a href="#" id="soma" value="soma" class="home-btn-calculate button button-large">+</a>
+										</div>
+									</div>
+									<div class="col-25">
+										<div class="col-100">
+											<a href="#" id="subtracao" value="subtracao" class="home-btn-calculate button button-large">-</a>
+										</div>
+									</div>
+									<div class="col-25">
+										<div class="col-100">
+											<a href="#" id="multiplicacao" value="multiplicacao" class="home-btn-calculate button button-large">X</a>
+										</div>
+									</div>
+									<div class="col-25">
+										<div class="col-100">
+											<a href="#" id="divisao" value="divisao" class="home-btn-calculate button button-large">/</a>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
